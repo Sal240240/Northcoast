@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 
-import pressureWashingImg from "@assets/Snapchat-1561732439_1777705290147.jpg";
+import sidingCleanImg from "@assets/Snapchat-1557599487_(1)_1777705290147.jpg";
+import sidingDirtyImg from "@assets/Snapchat-1619335989_(1)_1777705290147.jpg";
 import roofImg from "@assets/homr_1777705290146.jpg";
 
 export default function Home() {
@@ -15,11 +16,11 @@ export default function Home() {
         description="Professional property maintenance in Vancouver BC. Pressure washing, gutter cleaning, snow removal, lawn care & more. Serving North Shore, Burnaby & Richmond. Get a free quote today." 
       />
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background">
         <div className="absolute inset-0 z-0">
           <img 
-            src={pressureWashingImg} 
-            alt="North Coast Property Maintenance pressure washing service - Vancouver BC" 
+            src={sidingCleanImg} 
+            alt="North Coast Property Maintenance siding restoration service - Vancouver BC" 
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -103,7 +104,7 @@ export default function Home() {
               {
                 title: "Pressure Washing",
                 desc: "Eradicate moss, algae, and grime from driveways, siding, and cedar decks.",
-                img: pressureWashingImg
+                img: sidingDirtyImg
               },
               {
                 title: "Snow & Ice Control",
@@ -139,8 +140,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How It Works */}
+      <section className="py-24 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">How It Works</h2>
+            <p className="text-xl text-muted-foreground">Simple, hassle-free property maintenance.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              {
+                step: 1,
+                title: "Request a Free Quote",
+                desc: "Fill out our form or call us. We respond within 24 hours."
+              },
+              {
+                step: 2,
+                title: "We Assess Your Property",
+                desc: "We visit to understand exactly what your property needs."
+              },
+              {
+                step: 3,
+                title: "Sit Back & Relax",
+                desc: "Our crew handles everything. You get updates along the way."
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-extrabold mb-6 border border-primary/20">
+                  {item.step}
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Us / Trust Section */}
-      <section className="py-24 bg-background border-y border-border">
+      <section className="py-24 bg-card border-y border-border">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -171,7 +216,7 @@ export default function Home() {
               <div className="aspect-[4/5] rounded-xl overflow-hidden border border-border">
                 <img src={roofImg} alt="North Coast team performing roof maintenance in Vancouver BC" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-card border border-border p-6 rounded-xl shadow-2xl max-w-xs hidden md:block">
+              <div className="absolute -bottom-8 -left-8 bg-background border border-border p-6 rounded-xl shadow-2xl max-w-xs hidden md:block">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-4xl font-extrabold text-primary">10+</div>
                   <div className="text-sm font-medium leading-tight">Years<br/>Experience</div>
@@ -183,8 +228,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Before / After */}
+      <section className="py-24 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">See the difference.</h2>
+            <p className="text-xl text-muted-foreground">Real results from real properties across Greater Vancouver.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <img src={sidingDirtyImg} alt="Before siding cleaning" className="w-full h-96 object-cover" />
+              <div className="absolute top-4 left-4 bg-black/70 text-white text-sm font-bold px-4 py-1.5 rounded-full backdrop-blur-sm">
+                Before
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden group">
+              <img src={sidingCleanImg} alt="After siding cleaning" className="w-full h-96 object-cover" />
+              <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full shadow-lg">
+                After
+              </div>
+            </div>
+          </div>
+          <p className="text-center text-muted-foreground mt-6 text-sm font-medium">Siding restoration — North Vancouver residential property</p>
+        </div>
+      </section>
+
       {/* Testimonials / Reviews Section */}
-      <section className="py-24 bg-card" data-testid="section-testimonials">
+      <section className="py-24 bg-card border-y border-border" data-testid="section-testimonials">
         <div className="container px-4 md:px-6">
           {/* Header with Google rating summary */}
           <motion.div
@@ -336,9 +407,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-32 relative overflow-hidden bg-background">
         <div className="absolute inset-0 bg-primary/5" />
-        <div className="container relative z-10 px-4 md:px-6 text-center max-w-4xl mx-auto">
+        <div className="container relative z-10 px-4 md:px-6 text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to get your property in shape?</h2>
           <p className="text-xl text-muted-foreground mb-10">
             Get a free, no-obligation quote for your property maintenance needs today.
@@ -349,9 +420,22 @@ export default function Home() {
                 Request a Quote
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold w-full sm:w-auto border-2">
-              Call (604) 555-0192
-            </Button>
+            <a href="tel:+16045550192">
+              <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold w-full sm:w-auto border-2">
+                Call (604) 555-0192
+              </Button>
+            </a>
+          </div>
+        </div>
+
+        <div className="container px-4 md:px-6 text-center pt-8 border-t border-border/50">
+          <h3 className="text-lg font-bold mb-6 text-foreground">Serving the Greater Vancouver Area</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["North Vancouver", "West Vancouver", "Vancouver", "Burnaby", "Richmond", "Coquitlam", "Port Moody", "New Westminster", "Langley", "Surrey", "Delta"].map(area => (
+              <span key={area} className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors">
+                {area}
+              </span>
+            ))}
           </div>
         </div>
       </section>

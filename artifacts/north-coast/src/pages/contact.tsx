@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, BadgeCheck, ShieldCheck } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -41,7 +41,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="py-20">
+    <div className="py-20 bg-background text-foreground">
       <SEOHead 
         title="Contact Us | North Coast Property Maintenance Vancouver BC" 
         description="Get in touch with North Coast Property Maintenance for a free quote. Serving Greater Vancouver, North Shore, Burnaby & Richmond BC." 
@@ -52,6 +52,37 @@ export default function Contact() {
           <p className="text-xl text-muted-foreground leading-relaxed">
             Ready to get your property in shape? Fill out the form below and we'll get back to you with a free, no-obligation estimate.
           </p>
+        </div>
+
+        {/* 3 Reasons Strip */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="flex items-center gap-4 bg-card border border-border p-6 rounded-2xl">
+            <div className="bg-primary/10 p-3 rounded-full">
+              <Clock className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg">Fast Response</h3>
+              <p className="text-sm text-muted-foreground">24-hour reply guaranteed</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 bg-card border border-border p-6 rounded-2xl">
+            <div className="bg-primary/10 p-3 rounded-full">
+              <BadgeCheck className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg">Free Estimates</h3>
+              <p className="text-sm text-muted-foreground">No obligation, transparent pricing</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 bg-card border border-border p-6 rounded-2xl">
+            <div className="bg-primary/10 p-3 rounded-full">
+              <ShieldCheck className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg">Licensed & Insured</h3>
+              <p className="text-sm text-muted-foreground">Peace of mind for every project</p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">

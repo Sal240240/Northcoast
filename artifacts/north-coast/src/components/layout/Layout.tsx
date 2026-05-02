@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, MapPin, Phone, Mail, ArrowRight, PhoneCall } from "lucide-react";
+import { Menu, X, MapPin, Phone, Mail, ArrowRight, PhoneCall, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/ThemeProvider";
 
 import logoFull from "@assets/logo-text-transparent.png";
-import logoBear from "@assets/logo-bear-transparent.png";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +15,7 @@ export default function Layout({ children }: LayoutProps) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,7 @@ export default function Layout({ children }: LayoutProps) {
 
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Portfolio", path: "/portfolio" },
     { name: "Contact", path: "/contact" },
@@ -68,7 +70,7 @@ export default function Layout({ children }: LayoutProps) {
             <img 
               src={logoFull} 
               alt="North Coast Property Maintenance - Vancouver BC" 
-              className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105 filter dark:invert-0 invert"
             />
           </Link>
 
@@ -86,6 +88,14 @@ export default function Layout({ children }: LayoutProps) {
                 {link.name}
               </Link>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-muted transition-colors text-foreground"
+              data-testid="button-theme-toggle"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
             <Link href="/quote" data-testid="link-nav-quote">
               <Button variant="secondary" className="font-semibold tracking-wide bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30">
                 Get Instant Quote <ArrowRight className="ml-2 h-4 w-4" />
@@ -94,13 +104,23 @@ export default function Layout({ children }: LayoutProps) {
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            data-testid="button-mobile-menu"
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-muted transition-colors text-foreground"
+              data-testid="button-theme-toggle-mobile"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -153,7 +173,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-1 flex flex-col gap-6">
               <Link href="/">
-                <img src={logoFull} alt="North Coast Property Maintenance - Vancouver BC" className="h-10 md:h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                <img src={logoFull} alt="North Coast Property Maintenance - Vancouver BC" className="h-10 md:h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity filter dark:invert-0 invert" />
               </Link>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Rugged, reliable property maintenance for the Greater Vancouver area. We handle the dirty work so you don't have to.
@@ -174,7 +194,7 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h4 className="font-bold text-foreground mb-6 uppercase tracking-wider text-sm">Company</h4>
               <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
-                <li><Link href="/" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
                 <li><Link href="/portfolio" className="hover:text-primary transition-colors">Our Work</Link></li>
                 <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
                 <li><Link href="/quote" className="hover:text-primary transition-colors">Request a Quote</Link></li>

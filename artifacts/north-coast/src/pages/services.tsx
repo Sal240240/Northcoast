@@ -2,8 +2,14 @@ import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-import pressureWashingImg from "@assets/Snapchat-1561732439_1777705290147.jpg";
+import sidingDirtyImg from "@assets/Snapchat-1619335989_(1)_1777705290147.jpg";
 import gutterclogImg from "@assets/Snapchat-391329889_1777705290146.jpg";
 
 export default function Services() {
@@ -26,7 +32,7 @@ export default function Services() {
       id: "washing",
       title: "Pressure Washing",
       desc: "Eradicate years of West Coast grime, moss, and algae from your property's hard surfaces.",
-      img: pressureWashingImg,
+      img: sidingDirtyImg,
       features: ["Driveway & concrete cleaning", "Siding & exterior washing", "Cedar deck restoration", "Fence cleaning"]
     },
     {
@@ -39,7 +45,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="py-20">
+    <div className="py-20 bg-background text-foreground">
       <SEOHead 
         title="Property Maintenance Services Vancouver | North Coast" 
         description="Expert property maintenance services in Vancouver BC: pressure washing, gutter cleaning, snow removal, lawn care. Licensed & insured. Free quotes." 
@@ -52,7 +58,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-24 mb-32">
           {services.map((service, index) => (
             <div key={service.id} className={`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-center`}>
               <div className="w-full md:w-1/2 aspect-[4/3] rounded-2xl overflow-hidden border border-border">
@@ -75,6 +81,48 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-left font-semibold">How often should I get my gutters cleaned in Vancouver?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                Vancouver's heavy rainfall and leaf drop mean most homes need gutter cleaning at least twice a year — spring and fall. Homes under trees may need more frequent service.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left font-semibold">What is included in a standard pressure washing service?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                We clean driveways, sidewalks, patios, siding, fences, and decks. We assess the surface type and use appropriate pressure settings to avoid damage while removing moss, algae, and grime.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left font-semibold">Do you offer maintenance programs?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                Yes! Our recurring maintenance programs are designed for homeowners and property managers who want consistent, hassle-free upkeep. We offer monthly, bi-weekly, and weekly schedules.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left font-semibold">Are you licensed and insured?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                Absolutely. North Coast Property Maintenance is fully licensed and insured in British Columbia, and all workers are WCB covered.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-left font-semibold">Do you serve commercial properties?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                Yes. We work with strata corporations, property management companies, and commercial property owners across Greater Vancouver.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-6">
+              <AccordionTrigger className="text-left font-semibold">How do I get a quote?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                Fill out our online form, use our Instant Quote Calculator, or call us directly at (604) 555-0192. We will respond within 24 hours.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </div>
