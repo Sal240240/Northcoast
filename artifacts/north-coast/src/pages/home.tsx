@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, Wrench, Clock } from "lucide-react";
+import { ArrowRight, Shield, Wrench, Clock, Star, Quote } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -179,6 +179,158 @@ export default function Home() {
                 <p className="text-sm text-muted-foreground">Trusted by over 500 homeowners and commercial properties across Greater Vancouver.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials / Reviews Section */}
+      <section className="py-24 bg-card" data-testid="section-testimonials">
+        <div className="container px-4 md:px-6">
+          {/* Header with Google rating summary */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
+          >
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">What our customers say.</h2>
+              <p className="text-xl text-muted-foreground">Trusted by homeowners and strata managers across Greater Vancouver.</p>
+            </div>
+            <div className="flex items-center gap-4 bg-background border border-border rounded-2xl px-6 py-4 shrink-0">
+              <div>
+                <div className="flex items-center gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-2xl font-extrabold leading-none">4.9</p>
+                <p className="text-xs text-muted-foreground mt-1">Based on 47 Google reviews</p>
+              </div>
+              <div className="w-px h-12 bg-border" />
+              <div className="flex flex-col items-center justify-center">
+                <svg viewBox="0 0 24 24" className="h-8 w-8" aria-label="Google">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                <span className="text-[10px] text-muted-foreground mt-1 font-medium">Google</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Review cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Sarah M.",
+                location: "North Vancouver",
+                date: "March 2025",
+                rating: 5,
+                service: "Pressure Washing",
+                text: "Had my driveway and siding done before listing our house. The transformation was unbelievable — looked brand new. The team was on time, professional, and cleaned up everything after. Highly recommend to anyone in North Van."
+              },
+              {
+                name: "Jason T.",
+                location: "Burnaby",
+                date: "January 2025",
+                rating: 5,
+                service: "Snow Removal",
+                text: "Called them during that bad snowstorm in January and they were out within two hours. Cleared my whole driveway and walkways, salted everything. Super reliable and reasonably priced. Will be using them every winter."
+              },
+              {
+                name: "Linda K.",
+                location: "West Vancouver",
+                date: "October 2024",
+                rating: 5,
+                service: "Gutter Cleaning",
+                text: "Our gutters were completely blocked with leaves after the fall. North Coast came out, cleaned everything out, and found a small repair issue I didn't know about. Honest, thorough crew. Already booked them for spring."
+              },
+              {
+                name: "Mike R.",
+                location: "Vancouver",
+                date: "September 2024",
+                rating: 5,
+                service: "Lawn Care",
+                text: "Been using them for monthly lawn care since the summer. The yard has never looked better. They always show up on the scheduled day, which I really appreciate. No hassle, no excuses — just solid work every time."
+              },
+              {
+                name: "Priya S.",
+                location: "Richmond",
+                date: "August 2024",
+                rating: 5,
+                service: "Property Maintenance",
+                text: "Hired North Coast for our rental property maintenance program. It's taken so much off my plate. They keep everything tidy and flag any issues early before they become expensive problems. Great communication too."
+              },
+              {
+                name: "David L.",
+                location: "Coquitlam",
+                date: "July 2024",
+                rating: 4,
+                service: "Pressure Washing",
+                text: "Really great job on the cedar deck — it looked completely rejuvenated. Took a bit longer than quoted but the quality of work was excellent. Would use again for sure."
+              }
+            ].map((review, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                data-testid={`card-review-${i}`}
+                className="bg-background border border-border rounded-2xl p-6 flex flex-col gap-4 hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary text-sm shrink-0">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-bold text-sm leading-tight">{review.name}</p>
+                      <p className="text-xs text-muted-foreground">{review.location}</p>
+                    </div>
+                  </div>
+                  <Quote className="h-5 w-5 text-primary/30 shrink-0 mt-1" />
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, s) => (
+                      <Star
+                        key={s}
+                        className={`h-4 w-4 ${s < review.rating ? "fill-yellow-400 text-yellow-400" : "text-border"}`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs text-muted-foreground">{review.date}</span>
+                </div>
+
+                <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full w-fit">
+                  {review.service}
+                </span>
+
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                  "{review.text}"
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Link to Google reviews */}
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground text-sm">
+              See all reviews on{" "}
+              <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-medium hover:underline"
+                data-testid="link-google-reviews"
+              >
+                Google Maps
+              </a>
+            </p>
           </div>
         </div>
       </section>
