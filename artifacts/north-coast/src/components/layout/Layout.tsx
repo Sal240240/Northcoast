@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { Menu, X, MapPin, Phone, Mail, ArrowRight, PhoneCall } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -210,6 +210,17 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
+
+      {/* Floating Call Button — mobile only */}
+      <a
+        href="tel:+16045550192"
+        data-testid="button-floating-call"
+        className="md:hidden fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-primary text-primary-foreground font-bold px-5 py-3.5 rounded-full shadow-2xl shadow-primary/40 hover:bg-primary/90 active:scale-95 transition-all duration-150"
+        aria-label="Call North Coast Property Maintenance"
+      >
+        <PhoneCall className="h-5 w-5 shrink-0" />
+        <span className="text-sm">Call Now</span>
+      </a>
     </div>
   );
 }
