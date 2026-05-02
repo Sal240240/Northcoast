@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "d0d6EKS6fKeEQOAkPWqmh"
+uri = "file://artifacts/north-coast/public/images/hero.png"
+type = "image"
+title = "hero property exterior vancouver"
+
+[[generated]]
+id = "QnwMx4mCod8kJBJEPFqdP"
+uri = "file://artifacts/north-coast/public/images/service-lawn.png"
+type = "image"
+title = "lush lawn maintenance"
+
+[[generated]]
+id = "9Ib7IdM21m4zuP4JyVvN6"
+uri = "file://artifacts/north-coast/public/images/service-snow.png"
+type = "image"
+title = "snow removal vancouver"
+
+[[generated]]
+id = "NDJk0heHhLsSTiKRY8Ep8"
+uri = "file://artifacts/north-coast/public/images/service-wash.png"
+type = "image"
+title = "pressure washing concrete"
+
+[[generated]]
+id = "GAFpBFMZorLp-yEjO0rHW"
+uri = "file://artifacts/north-coast/public/images/portfolio-1.png"
+type = "image"
+title = "commercial property maintenance"
+
+[[generated]]
+id = "3ZJHccyGuKrdU_vx_GuJN"
+uri = "file://artifacts/north-coast/public/images/portfolio-2.png"
+type = "image"
+title = "clean home exterior"
