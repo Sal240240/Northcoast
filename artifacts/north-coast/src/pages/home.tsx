@@ -1,17 +1,25 @@
-import { ArrowRight, CheckCircle2, Shield, Wrench, Clock, Quote } from "lucide-react";
+import { ArrowRight, Shield, Wrench, Clock } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import SEOHead from "@/components/SEOHead";
+
+import pressureWashingImg from "@assets/Snapchat-1561732439_1777705290147.jpg";
+import roofImg from "@assets/homr_1777705290146.jpg";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
+      <SEOHead 
+        title="North Coast Property Maintenance | Vancouver BC" 
+        description="Professional property maintenance in Vancouver BC. Pressure washing, gutter cleaning, snow removal, lawn care & more. Serving North Shore, Burnaby & Richmond. Get a free quote today." 
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero.png" 
-            alt="North Coast Property Maintenance - Professional Vancouver Exteriors" 
+            src={pressureWashingImg} 
+            alt="North Coast Property Maintenance pressure washing service - Vancouver BC" 
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -55,7 +63,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link href="/contact" data-testid="link-hero-quote">
+              <Link href="/quote" data-testid="link-hero-quote">
                 <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-bold">
                   Get a Free Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -95,7 +103,7 @@ export default function Home() {
               {
                 title: "Pressure Washing",
                 desc: "Eradicate moss, algae, and grime from driveways, siding, and cedar decks.",
-                img: "/images/service-wash.png"
+                img: pressureWashingImg
               },
               {
                 title: "Snow & Ice Control",
@@ -114,7 +122,7 @@ export default function Home() {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src={service.img} 
-                    alt={service.title}
+                    alt={`North Coast Property Maintenance ${service.title.toLowerCase()} service - Vancouver BC`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
@@ -161,7 +169,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="aspect-[4/5] rounded-xl overflow-hidden border border-border">
-                <img src="/images/portfolio-2.png" alt="North Coast team at work" className="w-full h-full object-cover" />
+                <img src={roofImg} alt="North Coast team performing roof maintenance in Vancouver BC" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-card border border-border p-6 rounded-xl shadow-2xl max-w-xs hidden md:block">
                 <div className="flex items-center gap-4 mb-4">
@@ -184,7 +192,7 @@ export default function Home() {
             Get a free, no-obligation quote for your property maintenance needs today.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/contact">
+            <Link href="/quote">
               <Button size="lg" className="h-14 px-8 text-lg font-bold w-full sm:w-auto">
                 Request a Quote
               </Button>

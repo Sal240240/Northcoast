@@ -4,8 +4,8 @@ import { Menu, X, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
-import logoFull from "@assets/logo2_1777704982763.png";
-import logoBear from "@assets/logo1_1777704982762.png";
+import logoFull from "@assets/logo-text-transparent.png";
+import logoBear from "@assets/logo-bear-transparent.png";
 
 interface LayoutProps {
   children: ReactNode;
@@ -67,7 +67,7 @@ export default function Layout({ children }: LayoutProps) {
           <Link href="/" className="flex items-center gap-3 group" data-testid="link-home-logo">
             <img 
               src={logoFull} 
-              alt="North Coast Property Maintenance" 
+              alt="North Coast Property Maintenance - Vancouver BC" 
               className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
@@ -86,9 +86,9 @@ export default function Layout({ children }: LayoutProps) {
                 {link.name}
               </Link>
             ))}
-            <Link href="/contact" data-testid="link-nav-quote">
-              <Button className="font-semibold tracking-wide">
-                Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
+            <Link href="/quote" data-testid="link-nav-quote">
+              <Button variant="secondary" className="font-semibold tracking-wide bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30">
+                Get Instant Quote <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </nav>
@@ -120,14 +120,23 @@ export default function Layout({ children }: LayoutProps) {
                 {link.name}
               </Link>
             ))}
+            <Link
+              href="/quote"
+              className={`text-2xl font-bold transition-colors ${
+                location === "/quote" ? "text-primary" : "text-foreground"
+              }`}
+              data-testid="link-mobile-nav-quote"
+            >
+              Quote
+            </Link>
           </nav>
           <div className="pt-6 border-t border-border flex flex-col gap-4">
             <div className="flex items-center gap-3 text-muted-foreground">
               <Phone className="h-5 w-5 text-primary" />
               <span className="text-lg font-medium text-foreground">(604) 555-0192</span>
             </div>
-            <Link href="/contact" className="w-full mt-4" data-testid="link-mobile-quote">
-              <Button size="lg" className="w-full font-bold text-lg">Get a Quote</Button>
+            <Link href="/quote" className="w-full mt-4" data-testid="link-mobile-quote">
+              <Button size="lg" className="w-full font-bold text-lg bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30">Get Instant Quote</Button>
             </Link>
           </div>
         </div>
@@ -144,7 +153,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-1 flex flex-col gap-6">
               <Link href="/">
-                <img src={logoFull} alt="North Coast Property Maintenance" className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                <img src={logoFull} alt="North Coast Property Maintenance - Vancouver BC" className="h-10 md:h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
               </Link>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Rugged, reliable property maintenance for the Greater Vancouver area. We handle the dirty work so you don't have to.
@@ -168,7 +177,7 @@ export default function Layout({ children }: LayoutProps) {
                 <li><Link href="/" className="hover:text-primary transition-colors">About Us</Link></li>
                 <li><Link href="/portfolio" className="hover:text-primary transition-colors">Our Work</Link></li>
                 <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Request a Quote</Link></li>
+                <li><Link href="/quote" className="hover:text-primary transition-colors">Request a Quote</Link></li>
               </ul>
             </div>
 

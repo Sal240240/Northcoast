@@ -1,13 +1,14 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import SEOHead from "@/components/SEOHead";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -41,6 +42,10 @@ export default function Contact() {
 
   return (
     <div className="py-20">
+      <SEOHead 
+        title="Contact Us | North Coast Property Maintenance Vancouver BC" 
+        description="Get in touch with North Coast Property Maintenance for a free quote. Serving Greater Vancouver, North Shore, Burnaby & Richmond BC." 
+      />
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mb-16">
           <h1 className="text-5xl font-extrabold mb-6 tracking-tight">Get a Quote</h1>
