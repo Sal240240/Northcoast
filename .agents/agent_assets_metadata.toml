@@ -36,3 +36,9 @@ id = "3ZJHccyGuKrdU_vx_GuJN"
 uri = "file://artifacts/north-coast/public/images/portfolio-2.png"
 type = "image"
 title = "clean home exterior"
+
+[[generated]]
+id = "gSYfb6_QYzOqOC45hTmbC"
+uri = "file://attached_assets/generated_images/generated_image.png"
+type = "image"
+title = "generated_image"

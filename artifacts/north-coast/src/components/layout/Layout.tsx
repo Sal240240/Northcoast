@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
 
+import logoBear from "@assets/logo-bear-transparent.png";
 import logoFull from "@assets/logo-text-transparent.png";
 
 interface LayoutProps {
@@ -62,15 +63,15 @@ export default function Layout({ children }: LayoutProps) {
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           scrolled
             ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm py-3"
-            : "bg-background py-5"
+            : "bg-background py-4"
         }`}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group" data-testid="link-home-logo">
-            <img 
-              src={logoFull} 
-              alt="North Coast Property Maintenance - Vancouver BC" 
-              className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105 filter dark:invert-0 invert"
+            <img
+              src={logoBear}
+              alt="North Coast Property Maintenance - Vancouver BC"
+              className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 
@@ -172,14 +173,15 @@ export default function Layout({ children }: LayoutProps) {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-1 flex flex-col gap-6">
-              <Link href="/">
-                <img src={logoFull} alt="North Coast Property Maintenance - Vancouver BC" className="h-10 md:h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity filter dark:invert-0 invert" />
+              <Link href="/" className="flex items-center gap-3">
+                <img src={logoBear} alt="North Coast Property Maintenance" className="h-10 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                <img src={logoFull} alt="North Coast Property Maintenance" className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity dark:invert-0 invert" />
               </Link>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Rugged, reliable property maintenance for the Greater Vancouver area. We handle the dirty work so you don't have to.
               </p>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-foreground mb-6 uppercase tracking-wider text-sm">Services</h4>
               <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
@@ -187,7 +189,8 @@ export default function Layout({ children }: LayoutProps) {
                 <li><Link href="/services" className="hover:text-primary transition-colors">Snow Removal & Ice Control</Link></li>
                 <li><Link href="/services" className="hover:text-primary transition-colors">Pressure Washing</Link></li>
                 <li><Link href="/services" className="hover:text-primary transition-colors">Gutter Cleaning</Link></li>
-                <li><Link href="/services" className="hover:text-primary transition-colors">Property Inspections</Link></li>
+                <li><Link href="/services" className="hover:text-primary transition-colors">Window Cleaning</Link></li>
+                <li><Link href="/services" className="hover:text-primary transition-colors">Roof Moss Treatment</Link></li>
               </ul>
             </div>
 
