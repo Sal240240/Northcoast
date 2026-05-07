@@ -11,6 +11,7 @@ import gutterclogImg from "@assets/Snapchat-391329889_1777705290146.jpg";
 import roofImg from "@assets/homr_1777705290146.jpg";
 import logoFull from "@assets/logo-text-transparent.png";
 import logoBear from "@assets/logo-bear-transparent.png";
+import heroimg from "/artifacts/north-coast/public/images/hero.png";
 
 export default function Home() {
   const [quoteService, setQuoteService] = useState("");
@@ -28,7 +29,7 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background">
         <div className="absolute inset-0 z-0">
           <img
-            src={sidingCleanImg}
+            src={heroimg}
             alt="North Coast Property Maintenance siding restoration service - Vancouver BC"
             className="w-full h-full object-cover opacity-40"
           />
